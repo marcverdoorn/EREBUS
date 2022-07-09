@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EREBUS" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->        <item name="colorPrimary">@color/erebus_DB</item>
+        <item name="colorPrimaryVariant">@color/erebus_DB</item>
+        <item name="colorOnPrimary">@color/erebus_DB</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/erebus_DB</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/erebus_DB</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
