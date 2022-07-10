@@ -23,4 +23,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="155dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="200dp"
+        android:onClick="login"
+        android:text="ENTER"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
