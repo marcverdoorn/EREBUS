@@ -1,6 +1,7 @@
 package com.example.erebus
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,6 +27,8 @@ class set_password : AppCompatActivity() {
         if (pass1 == pass2 && pass1 != "" && pass2 != ""){
             var hash = hash_pass(pass1)
             save_hash(hash)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }else{
             Toast.makeText(applicationContext, "Re-confim password", Toast.LENGTH_SHORT).show()
         }

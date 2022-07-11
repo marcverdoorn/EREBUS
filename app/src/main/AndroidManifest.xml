@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EREBUS">
         <activity
+            android:name=".settings"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".menu"/>
+        </activity>
+        <activity
+            android:name=".menu"
+            android:exported="false" />
+        <activity
             android:name=".set_password"
             android:exported="false" />
         <activity

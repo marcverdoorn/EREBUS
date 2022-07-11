@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, set_password::class.java)
             startActivity(intent)
         }else if (hash == hashed_pass){
-            Toast.makeText(applicationContext, "logged in!", Toast.LENGTH_SHORT).show()
+            val intent2 = Intent(this, menu::class.java)
+            startActivity(intent2)
         }else{
             Toast.makeText(applicationContext, "Wrong password!", Toast.LENGTH_SHORT).show()
         }
