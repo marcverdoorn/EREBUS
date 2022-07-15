@@ -15,4 +15,9 @@ class menu : AppCompatActivity() {
         val intent = Intent(this, settings::class.java)
         startActivity(intent)
     }
+
+    fun new_note(view: View){
+        val intent = Intent(this, newnote::class.java)
+        startActivity(intent)
+    }
 }
