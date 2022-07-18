@@ -10,11 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EREBUS">
         <activity
+            android:name=".viewnote"
+            android:exported="false" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".menu"/>
+        </activity>
+        <activity
             android:name=".newnote"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".menu"/>
+                android:value=".menu" />
         </activity>
         <activity
             android:name=".settings"

@@ -1,10 +1,16 @@
 package com.example.erebus
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import android.widget.LinearLayout
+import android.view.ViewGroup
+
+const val NOTE_NAME = "com.example.EREBUS.NOTENAME"
 
 class menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +40,27 @@ class menu : AppCompatActivity() {
     }
 
     fun show_files(){
-        var files = applicationContext.fileList()
-        var stringbuilder = ""
+        val files = applicationContext.fileList()
         for(i in files){
-            stringbuilder += i.toString() + " "
+            add_note_view(i)
         }
-        Toast.makeText(applicationContext, stringbuilder, Toast.LENGTH_SHORT).show()
+    }
+
+    fun add_note_view(title: String){
+        val note_layout = findViewById<LinearLayout>(R.id.note_layout)
+        val noteview: TextView = TextView(this)
+        noteview.textSize = 20f
+        noteview.text = title
+        noteview.setPadding(20,50,20,50)
+        noteview.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        noteview.setBackgroundColor(Color.rgb(0,51,102))
+        noteview.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, viewnote::class.java).apply {
+                putExtra(NOTE_NAME, title)
+            }
+            startActivity(intent)
+        })
+        note_layout.addView(noteview)
     }
 
 }
