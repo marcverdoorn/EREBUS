@@ -9,6 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.LinearLayout
 import android.view.ViewGroup
+import androidx.core.view.marginBottom
+import androidx.core.view.marginTop
 
 const val NOTE_NAME = "com.example.EREBUS.NOTENAME"
 
@@ -48,9 +50,12 @@ class menu : AppCompatActivity() {
 
     fun add_note_view(title: String){
         val note_layout = findViewById<LinearLayout>(R.id.note_layout)
+        val layoutparams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+        layoutparams.setMargins(20,20,20,20)
         val noteview: TextView = TextView(this)
         noteview.textSize = 20f
         noteview.text = title
+        noteview.setTextColor(Color.WHITE)
         noteview.setPadding(20,50,20,50)
         noteview.textAlignment = View.TEXT_ALIGNMENT_CENTER
         noteview.setBackgroundColor(Color.rgb(0,51,102))
@@ -60,7 +65,7 @@ class menu : AppCompatActivity() {
             }
             startActivity(intent)
         })
-        note_layout.addView(noteview)
+        note_layout.addView(noteview, layoutparams)
     }
 
 }
