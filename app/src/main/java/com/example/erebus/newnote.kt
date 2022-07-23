@@ -8,23 +8,29 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import java.io.ByteArrayOutputStream
+import java.io.ObjectOutputStream
+import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 
 class newnote : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newnote)
-        encrypt()
+        val test = encrypt("test string").toString()
+        val textView = findViewById<TextView>(R.id.textView2)
+        textView.text = test
         //readfile("test")
     }
 
-    fun encrypt(){
+    fun encrypt(data: String): ByteArray{
         val keygen = KeyGenerator.getInstance("AES")
         keygen.init(256)
         val key = keygen.generateKey()
-        val tekst = key.encoded.toString()
-        val textView = findViewById<TextView>(R.id.textView2)
-        textView.text = tekst
+        //val tekst = key.encoded.toString()
+        //val textView = findViewById<TextView>(R.id.textView2)
+        //textView.text = tekst
+
     }
 
     fun save(view: View){
