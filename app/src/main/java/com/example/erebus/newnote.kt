@@ -35,6 +35,9 @@ class newnote : AppCompatActivity() {
                 applicationContext.openFileOutput(title, Context.MODE_PRIVATE).use{
                     it.write(plaintext.toByteArray())
                 }
+                intent = Intent(this, menu::class.java)
+                overridePendingTransition(0, 0)
+                startActivity(intent)
             }catch (e: Exception){
                 Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
             }

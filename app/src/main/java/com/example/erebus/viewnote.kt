@@ -17,14 +17,14 @@ class viewnote : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewnote)
         filename = intent.getStringExtra(NOTE_NAME).toString()
-        val note_content = readfile(filename)
-        val noteView = findViewById<EditText>(R.id.editTextTextMultiLine2)
-        noteView.setText(note_content)
+        val note_content = read_file(filename)
+        val note_view = findViewById<EditText>(R.id.editTextTextMultiLine2)
+        note_view.setText(note_content)
         val title_view = findViewById<TextView>(R.id.title_view)
         title_view.text = filename
     }
 
-    fun readfile(filename: String): String{
+    fun read_file(filename: String): String{
         try {
             val text = applicationContext.openFileInput(filename).bufferedReader().useLines { lines ->
                 lines.fold(""){ some, text ->
