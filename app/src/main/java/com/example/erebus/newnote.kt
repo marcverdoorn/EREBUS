@@ -8,6 +8,9 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.security.crypto.MasterKey
+import androidx.security.crypto.MasterKeys
+import androidx.security.crypto.MasterKeys.getOrCreate
 import java.io.ByteArrayOutputStream
 import java.io.ObjectOutputStream
 import javax.crypto.Cipher
@@ -17,20 +20,15 @@ class newnote : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_newnote)
-        val test = encrypt("test string").toString()
-        val textView = findViewById<TextView>(R.id.textView2)
-        textView.text = test
+        //val test = encrypt("test string").toString()
+        //val textView = findViewById<TextView>(R.id.textView2)
+        //textView.text = test
         //readfile("test")
     }
 
-    fun encrypt(data: String): ByteArray{
-        val keygen = KeyGenerator.getInstance("AES")
-        keygen.init(256)
-        val key = keygen.generateKey()
-        //val tekst = key.encoded.toString()
-        //val textView = findViewById<TextView>(R.id.textView2)
-        //textView.text = tekst
-
+    fun encrypt(data: String){
+        val keyGenParameterSpec = MasterKeys.AES256_GCM_SPEC
+        val mainKeyAlias = MasterKey.getOrCreate(keyGenParameterSpec)
     }
 
     fun save(view: View){
